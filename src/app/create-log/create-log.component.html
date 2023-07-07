@@ -1,0 +1,20 @@
+<app-security-nav></app-security-nav>
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-flex justify-content-center mt-5">
+            <div style="width: 100rm;" class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center mb-5">
+                    <h1>Employee Log</h1>
+                </div>
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <label for="" class="form-label">Employee Code</label>
+                    <input type="text" class="form-control" name="empCode" [(ngModel)]="empCode" placeholder="Enter employee code...">
+                </div>
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 d-flex justify-content-center mt-3">
+                    <button class="btn btn-primary mx-2" (click)="addEntry()">Add Entry</button>
+                    <button class="btn btn-primary" (click)="addExit()">Add Exit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

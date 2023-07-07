@@ -1,0 +1,42 @@
+<app-admin-nav-bar></app-admin-nav-bar>
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
+            <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mt-5">
+                    <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
+                        <h1 class="text-primary">Add Security</h1>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
+                            <label for="" class="form-label text-secondary">Security Name</label>
+                            <input type="text" class="form-control" name="name" [(ngModel)]="name" placeholder="Enter employee name...">
+                        </div>
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
+                            <label for="" class="form-label text-secondary">Email</label>
+                            <input type="text" class="form-control" name="email" [(ngModel)]="email" placeholder="Enter employee email...">
+                        </div>
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
+                            <label for="" class="form-label text-secondary">Phone</label>
+                            <input type="text" class="form-control" name="phone" [(ngModel)]="phone" placeholder="Enter employee phone...">
+                        </div>
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
+                            <label for="" class="form-label text-secondary">Username</label>
+                            <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="Enter username...">
+                        </div>
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="" class="form-label text-secondary">Password</label>
+                            <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Enter password...">
+                        </div>
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-4 d-flex justify-content-center mt-5">
+                            <button class="btn btn-primary p-2 mx-3" (click)="readValues()">Add Security</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 mt-5 d-flex justify-content-center">
+                    <img height="400px" src='assets/images/add_emp.svg' alt="">
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>

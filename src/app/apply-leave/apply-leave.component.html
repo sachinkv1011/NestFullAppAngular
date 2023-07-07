@@ -1,0 +1,64 @@
+<app-empl-navbar></app-empl-navbar>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-2">
+            <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <div class="row mt-5 g-3">
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 text-center">
+                            <h1 class="text-primary">Apply Leave</h1>
+                        </div>
+                        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
+                            <label class="mb-2" for=""><h5>Available Leaves</h5></label>
+                            <table class="table justify-content-center table-striped table-bordered mb-5">
+                                <thead class="bg-light">
+                                    <tr>
+                                        <th class="text-center" scope="col">Casual Leaves</th>
+                                        <th class="text-center" scope="col">Sick Leaves</th>
+                                        <th class="text-center" scope="col">Special Leaves</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let i of leaveDetails">
+                                        <td class="text-center">{{i.casualLeave}}</td>
+                                        <td class="text-center">{{i.sickLeave}}</td>
+                                        <td class="text-center">{{i.specialLeave}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="" class="form-label text-secondary">Type of Leave</label>
+                            <select class="form-select" aria-label="Default select example" name="type"
+                                [(ngModel)]="type">
+                                <option selected>Select Leave Type</option>
+                                <option value="casualLeave">Casual Leave</option>
+                                <option value="sickLeave">SickLeace</option>
+                                <option value="specialLeave">SpecialLeave</option>
+                            </select>
+                        </div>
+                        <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="" class="form-label text-secondary">Leave From</label>
+                            <input type="date" class="form-control" name="from" [(ngModel)]="from">
+                        </div>
+                        <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="" class="form-label text-secondary">Leave To</label>
+                            <input type="date" class="form-control" name="to" [(ngModel)]="to">
+                        </div>
+                        <div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                            <label for="" class="form-label text-secondary">remarks</label>
+                            <input type="text" class="form-control" name="remarks" [(ngModel)]="remarks"
+                                placeholder="Enter remarks...">
+                        </div>
+
+                        <div
+                            class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-4 d-flex justify-content-center mt-5">
+                            <button class="btn btn-primary p-2 mx-3" (click)="applyLeave()">Apply Leave</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

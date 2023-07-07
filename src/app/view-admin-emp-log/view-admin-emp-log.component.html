@@ -1,0 +1,104 @@
+<app-admin-nav-bar></app-admin-nav-bar>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <h1 class="text-center text-primary mb-4">Employee Logs</h1>
+                </div>
+                <div
+                    class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-5 d-flex justify-content-center">
+                    <div style="width: 50%;" class="d-flex">
+                        <input type="date" class="form-control mx-2" placeholder="🔍Search  date..." name="date"
+                            [(ngModel)]="date">
+                            <button class="btn btn-primary" (click)="searchLog()">Search</button>
+                    </div>
+                </div>
+
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mb-2"
+                    *ngIf="searchData.length!=0">
+                    <h5>Search Result</h5>
+                    <table class="table justify-content-center table-bordered mb-5">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="text-center" scope="col">Employee Code</th>
+                                <th class="text-center" scope="col">Name</th>
+                                <th class="text-center" scope="col">Date</th>
+                                <th class="text-center" scope="col">Entry Time</th>
+                                <th class="text-center" scope="col">Exit Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngIf="loading; then loadingScreen; else dataScreen"></ng-container>
+                            <ng-template #loadingScreen class="text-center">
+                                <div class="spinner-grow text-danger" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <div class="spinner-grow text-warning" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <div class="spinner-grow text-info" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </ng-template>
+                            <ng-template #dataScreen>
+                                <tr *ngFor="let i of searchData">
+                                    <td class="text-center">{{i.emp_code}}</td>
+                                    <td class="text-center">{{i.name}}</td>
+                                    <td class="text-center">{{i.date}}</td>
+                                    <td class="text-center">{{i.entry_time}}</td>
+                                    <td class="text-center" *ngIf="i.exit_time!=null;else temp ">{{i.exit_time}}</td>
+                                    <ng-template #temp>
+                                        <td class="text-center">not exited</td>
+                                    </ng-template>
+                                </tr>
+                            </ng-template>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
+                    <h5 *ngIf="searchData.length!=0">All Logs</h5>
+                    <table class="table justify-content-center table-striped table-bordered mb-5">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="text-center" scope="col">Employee Code</th>
+                                <th class="text-center" scope="col">Name</th>
+                                <th class="text-center" scope="col">Date</th>
+                                <th class="text-center" scope="col">Entry Time</th>
+                                <th class="text-center" scope="col">Exit Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngIf="loading; then loadingScreen; else dataScreen"></ng-container>
+                            <ng-template #loadingScreen class="text-center">
+                                <div class="spinner-grow text-danger" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <div class="spinner-grow text-warning" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <div class="spinner-grow text-info" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </ng-template>
+                            <ng-template #dataScreen>
+                                <tr *ngFor="let i of secemplogs">
+                                    <td class="text-center">{{i.emp_code}}</td>
+                                    <td class="text-center">{{i.name}}</td>
+                                    <td class="text-center">{{i.date}}</td>
+                                    <td class="text-center">{{i.entry_time}}</td>
+                                    <td class="text-center" *ngIf="i.exit_time!=null;else temp ">{{i.exit_time}}</td>
+                                    <ng-template #temp>
+                                        <td class="text-center">not exited</td>
+                                    </ng-template>
+                                </tr>
+                            </ng-template>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

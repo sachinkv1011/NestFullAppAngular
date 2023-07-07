@@ -1,0 +1,62 @@
+<app-empl-navbar></app-empl-navbar>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <div class="row">
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                    <h1 class="text-center text-primary mb-4">Leaves</h1>
+                </div>
+                <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mt-5">
+                    <table class="table justify-content-center table-striped table-bordered mb-5">
+                        <thead class="bg-light">
+                            <tr>
+                                <th class="text-center" scope="col">Leave Type</th>
+                                <th class="text-center" scope="col">From</th>
+                                <th class="text-center" scope="col">To</th>
+                                <th class="text-center" scope="col">Remarks</th>
+                                <th class="text-center" scope="col">Apply Date</th>
+                                <th class="text-center" scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngIf="loading; then loadingScreen; else dataScreen"></ng-container>
+                            <ng-template #loadingScreen class="text-center">
+                                <div class="spinner-grow text-danger" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <div class="spinner-grow text-warning" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <div class="spinner-grow text-info" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </ng-template>
+                            <ng-template #dataScreen>
+                                <tr *ngFor="let i of leaves">
+                                    <td class="text-center">{{i.leaveType}}</td>
+                                    <td class="text-center">{{i.fromDate}}</td>
+                                    <td class="text-center">{{i.toDate}}</td>
+                                    <td class="text-center">{{i.remarks}}</td>
+                                    <td class="text-center">{{i.applyDate}}</td>
+                                    <div *ngIf="i.leaveStatus==0; then thenBlock else elseBlock"></div>
+                                    <ng-template #thenBlock>
+                                            <td class="text-center">Pending</td>
+                                    </ng-template>
+                                    <ng-template #elseBlock>
+                                        <div *ngIf="i.leaveStatus==1; then thensBlock else elsesBlock"></div>
+                                            <ng-template #thensBlock>
+                                                <td class="text-center">Approved</td>
+                                            </ng-template>
+                                            <ng-template #elsesBlock>
+                                                <td class="text-center">Rejected</td>
+                                            </ng-template>
+                                    </ng-template>
+                            </ng-template>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
